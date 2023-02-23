@@ -3,13 +3,17 @@ import axios from 'axios';
 import './style.css';
 import Crypto from '../Crypto';
 
-const CRYPTO_API_URL = 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=INR&order=market_cap_desc&per_page=100&page=1&sparkline=false';
+const coinsPerPage = 100;
+const arrayForHoldingCoins = [];
+const CRYPTO_API_URL = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=INR&order=market_cap_desc&per_page=${coinsPerPage}&page=1&sparkline=false`;
 
 function App() {
   const [coins, setCoins] = useState([])
   const [search, setSearch] = useState('')
   const [isLoading, setIsLoading] = useState(false)
   const [hasError, setHasError] = useState(false)
+  const [coinsToShow, setCoinsToShow] = useState([]);
+  const [count, setCount] = useState(1);
 
   useEffect(() => {
     axios.get(CRYPTO_API_URL)
@@ -26,6 +30,26 @@ function App() {
   function handleChange(event) {
     setSearch(event.target.value)
   }
+
+  const loopThroughCoins = (count) => {
+    for (let i = count * coinsPerPage - coinsPerPage; i < coinsPerPage * count; i++) {
+      if (coins[i] !== undefined) {
+        arrayForHoldingCoins.push(coins[i]);
+      }
+    }
+    setCoinsToShow(arrayForHoldingCoins);
+    
+  }
+
+  useEffect(() => {
+    setCount((prevCount) => prevCount + 1);
+    loopThroughCoins(count)
+  }, []);
+
+  const handleShowMoreCoins = () => {
+    setCount((prevCount) => prevCount + 1);
+    loopThroughCoins(count)
+  };
 
   const filteredCoins = coins.filter(item =>
     item.name.toLowerCase().includes(search.toLowerCase())
@@ -70,11 +94,13 @@ function App() {
             pricechange={coin.price_change_percentage_24h}
             volume={coin.total_volume}
             rank={coin.market_cap_rank}
+            coinsToRender={coinsToShow}
           />
         );
       })
     )
   }
+
 
   return (
     <div className="App">
@@ -94,7 +120,7 @@ function App() {
           {renderCoins()}
         </div>
       </div>
-      <button className='load-more'>Load More</button>
+      <button className='load-more' onClick={handleShowMoreCoins}>Load More</button>
     </div>
   );
 }

@@ -13,9 +13,9 @@ function Crypto(props) {
                 <div className="coin-data">
                     <p className="coin-price">{`$${props.price}`}</p>
                     {props.pricechange < 0 ? (
-                        <p className="coin-percent red">{props.pricechange.toFixed(2)}%</p>
+                        <p className="coin-percent red">{props.pricechange}%</p>
                     ) : (
-                        <p className="coin-percent green">{props.pricechange.toFixed(2)}%</p>
+                        <p className="coin-percent green">{props.pricechange}%</p>
                     )
                     }
                     <p className="coin-marketcap">

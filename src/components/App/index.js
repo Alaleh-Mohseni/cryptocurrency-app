@@ -7,6 +7,7 @@ import Coins from '../../pages/Coins';
 import Login from '../../pages/Login';
 import Profile from '../../pages/Profile';
 import Register from '../../pages/Register';
+import ForgotPassword from '../ForgotPassword';
 
 const router = createBrowserRouter([
   {
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
     element:<Login />
   },
   {
+    path:"/login/forgotpassword",
+    element:<ForgotPassword />
+  },
+  {
     path:"/profile",
     element:<Profile />
   },
@@ -31,7 +36,7 @@ const router = createBrowserRouter([
   },
   {
     path:'*',
-    element:<Navigate to="/login"/>
+    element:<Navigate to="/login" />
   }
 ])
 

@@ -1,0 +1,29 @@
+.box-red {
+    background-color: #ffc9c9;
+}
+
+.green {
+    background-color: #b1face;
+}
+
+.bg-logo-red,
+.bg-logo-green {
+    width: 60px;
+    height: 60px;
+}
+
+.bg-logo-red {
+    background-color: #ea868f;
+}
+
+.bg-logo-green {
+    background-color: #4ef591;
+}
+
+.text-red {
+    color: #dc3545;
+}
+
+.text-green {
+    color: #249150;
+}

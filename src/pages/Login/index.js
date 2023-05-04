@@ -50,8 +50,8 @@ const Login = () => {
                         <img src={Image} class="d-block mx-lg-auto img-fluid img-logo" alt="Bootstrap Themes" width="700" height="500" loading="lazy" />
                     </div>
                     <div className="col-md-10 mx-auto col-lg-5">
-                        <form className="p-4 p-md-5 border rounded-4 bg-body-tertiary" onSubmit={validateFormInput}>
-                            <h1 className="display-4 fw-bold lh-1 text-body-emphasis mb-5 text-center fs-1">Login</h1>
+                        <form className="p-4 p-md-5 shadow-sm rounded-4 bg-body-tertiary border border-light" onSubmit={validateFormInput}>
+                            <h3 className="display-4 fw-bold lh-1 text-body-emphasis mb-5 text-center fs-1">Login</h3>
                             <div className="form-floating mb-3">
                                 <input
                                     type="email"
@@ -82,12 +82,16 @@ const Login = () => {
                                 <label>
                                     <input type="checkbox" value="remember-me" /> Remember me
                                 </label>
-                                <span className="text-body-secondary"><Link className="text-decoration-none" to="">Forgot Password?</Link></span>
+                                <span className="text-body-secondary">
+                                    <Link className="text-decoration-none" to="/login/forgotpassword">Forgot Password?</Link>
+                                </span>
                             </div>
                             <button className="w-100 btn btn-lg btn-primary" type="submit">Login</button>
                             <hr className="mb-3 mt-4" />
-                            {/* <p className="text-body-secondary"><Link className="text-decoration-none" to="">Forgot Password?</Link></p> */}
-                            <p className="text-body-secondary">Don't have an account?<Link className="text-decoration-none" to="/register"> Register</Link></p>
+                            <p className="text-body-secondary">
+                                Don't have an account?
+                                <Link className="text-decoration-none" to="/register"> Register</Link>
+                            </p>
                         </form>
                     </div>
                 </div>

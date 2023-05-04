@@ -14,7 +14,7 @@ const TableRow = ({ coins }) => {
                 {coins.price_change_percentage_24h < 0 ? (
                     <p className="text-danger">{coins.price_change_percentage_24h}%</p>
                 ) : (
-                    <p className="text-success">{coins.price_change_percentage_24h}%</p>
+                    <p className="text-success">+{coins.price_change_percentage_24h}%</p>
                 )
                 }
             </td>

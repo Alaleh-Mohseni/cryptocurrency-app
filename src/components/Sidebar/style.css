@@ -1,0 +1,44 @@
+.sidebar {
+    /* background-color: rgba(219, 226, 255, 0.3); */
+    /* background-color: #cfe2ff7d; */
+    min-height: 100vh;
+    position: fixed;
+}
+
+.sidebar-list,
+.sidebar-form {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.sidebar-list ul,
+.sidebar-form ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.sidebar-list ul li, 
+.sidebar-form ul li {
+    display: flex;
+    align-items: center;
+    padding: 10px 9px;
+}
+
+.sidebar-list ul li:hover, 
+.sidebar-form ul li:hover {
+    /* background-color: #7391ff; */
+    background-color: #0d6efd;
+    color: #fff;
+    border-radius: 10px;
+}
+
+.help-text {
+    font-size: 13px;
+    color: #000;
+    text-align: center;
+}
+
+.btn-help {
+    font-size: 13px;
+}
